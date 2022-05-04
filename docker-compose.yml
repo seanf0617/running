@@ -13,12 +13,12 @@ volumes:
     driver: local
     
 services:
-    db:
-      image: postgres:11.1
-      volumes:
-        - postgres:/var/lib/postgresql/data/pgdata
-      env_file:
-        - ./config/environment/development.env
+    # db:
+    #   image: postgres:11.1
+    #   volumes:
+    #     - postgres:/var/lib/postgresql/data/pgdata
+    #   env_file:
+    #     - ./config/environment/development.env
 
     webserver:
       image: nginx:1.15
