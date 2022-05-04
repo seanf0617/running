@@ -19,10 +19,9 @@ Stack and version numbers used:
 
 | Name           | Version  |
 |----------------|----------|
-| Django         | 2.1.4    |
-| Nginx          | 1.15     |
-| Postgresql     | 11.1     |
-| uWSGI          | 2.0.17.1 |
+| Django         | 4.0.4    |
+| Nginx          | 1.15     |??
+| uWSGI          | 2.0.17.1 |??
 
 ## Folder structure
 
