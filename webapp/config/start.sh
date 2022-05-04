@@ -1,12 +1,12 @@
 #!/bin/bash
 set -e
 
-#####
-# Postgres: wait until container is created
-#####
-until python3 /srv/config/database-check.py; do
-    sleep 5; echo "*** Waiting for postgres container ..."
-done
+# #####
+# # Postgres: wait until container is created
+# #####
+# until python3 /srv/config/database-check.py; do
+#     sleep 5; echo "*** Waiting for postgres container ..."
+# done
 
 #####
 # Django setup
