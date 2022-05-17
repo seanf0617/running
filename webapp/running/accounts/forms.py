@@ -1,15 +1,21 @@
+from cProfile import label
+import email
 from django import forms
-from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
- 
-  
-class UserRegisterForm(UserCreationForm):
-    username = forms.CharField(max_length=30, required=True, help_text='Optional')
-    first_name = forms.CharField(max_length=30, required=False, help_text='Optional')
-    last_name = forms.CharField(max_length=50, required=False, help_text='Optional')
-    email = forms.EmailField(max_length=254, help_text='Enter a valid email address')
-    phone_no = forms.CharField(max_length = 20)
+from django.contrib.auth.models import User 
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
-    # class Meta:
-    #     model = User
-    #     fields = ['username', 'email', 'phone_no', 'password1', 'password2']
+from .models import CustomUser
+
+class CustomUserCreationForm(UserCreationForm):
+    email = forms.CharField(max_length=254)
+
+    class Meta:
+        model = CustomUser
+        fields = ("username", "email")
+        labels = {'email':'email address',}
+
+class CustomUserChangeForm(UserChangeForm):
+
+    class Meta:
+        model = CustomUser
+        fields = ("username", "email")

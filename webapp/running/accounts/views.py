@@ -1,51 +1,25 @@
+from django import forms
+from django.contrib.auth.models import User
+
 from django.shortcuts import render
-from django.contrib.auth.forms import UserCreationForm
+#from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
-from django.views import generic
+from django.views.generic.edit import CreateView
+from .forms import CustomUserCreationForm
 
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
-from .forms import UserRegisterForm
-from django.core.mail import send_mail
-from django.core.mail import EmailMultiAlternatives
-from django.template.loader import get_template
-from django.template import Context
 
 
-class SignUpView(generic.CreateView):
-    form_class = UserCreationForm
+class SignUpView(CreateView):
+    form_class = CustomUserCreationForm
+    
     success_url = reverse_lazy("login")
     template_name = "registration/signup.html"
 
-#     #################### index#######################################
-# def index(request):
-#     return render(request, 'user/index.html', {'title':'index'})
-  
-########### register here #####################################
-def register(request):
-    if request.method == 'POST':
-        form = UserRegisterForm(request.POST)
-        if form.is_valid():
-            form.save()
-            # username = form.cleaned_data.get('username')
-            # email = form.cleaned_data.get('email')
-            # ######################### mail system ####################################
-            # htmly = get_template('user/Email.html')
-            # d = { 'username': username }
-            # subject, from_email, to = 'welcome', 'your_email@gmail.com', email
-            # html_content = htmly.render(d)
-            # msg = EmailMultiAlternatives(subject, html_content, from_email, [to])
-            # msg.attach_alternative(html_content, "text/html")
-            # msg.send()
-            # ##################################################################
-            messages.success(request, f'Your account has been created ! You are now able to log in')
-            return redirect('login')
-    else:
-        form = UserRegisterForm()
-    return render(request, 'registration/signup.html', {'form': form, 'title':'reqister here'})
   
 ################ login forms###################################################
 def Login(request):

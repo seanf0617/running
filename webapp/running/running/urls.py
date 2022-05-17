@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic.base import TemplateView
 
+#from users import views as users_views
 from accounts import views as accounts_view
 from django.contrib.auth import views as auth
 
@@ -26,8 +27,9 @@ urlpatterns = [
 
     path('login/', accounts_view.Login, name ='login'),
     path('logout/', auth.LogoutView.as_view(template_name ='accounts/index.html'), name ='logout'),
-#    path('register/', accounts_view.register, name ='register'),
     path("accounts/", include("django.contrib.auth.urls")),
     path("accounts/", include("accounts.urls")),
+#    path('register/',users_views.register, name='register'),
+    path('miles/', TemplateView.as_view(template_name='miles.html'), name='miles'),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
 ]

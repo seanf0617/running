@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'runner',
     'accounts',
+    'record',
 ]
 
 MIDDLEWARE = [
@@ -132,3 +133,4 @@ EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+AUTH_USER_MODEL = "accounts.CustomUser"
