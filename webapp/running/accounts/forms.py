@@ -9,10 +9,11 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta:
         model = CustomUser
-        fields = ("username", "email", "first_name", "last_name")
+        fields = ("username", "email", "first_name", "last_name", "location")
         labels = {'email':'email address',}
         labels = {'first_name':'First name',}
         labels = {'last_name':'Last name',}
+        labels = {'location':'Location',}
         # location
         # DOB
 

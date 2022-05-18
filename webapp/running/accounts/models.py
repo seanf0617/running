@@ -6,7 +6,7 @@ class CustomUser(AbstractUser):
     # add additional fields in here
     first_name= models.CharField(null=True, blank=True, max_length=100)
     last_name = models.CharField(null=True, blank=True, max_length=100)
-    # location
+    location = models.CharField(null=True, blank=True, max_length=100)
     # DOB
 
     def __str__(self):
