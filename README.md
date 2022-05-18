@@ -1,3 +1,20 @@
+To Do
+- Add record workout
+- add password reset
+- Add DOB
+- Add Location
+
+
+
+
+
+
+
+
+
+OLD README !!!!!
+
+
 Docker Django
 =============
 

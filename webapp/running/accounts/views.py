@@ -1,8 +1,7 @@
 from django import forms
-from django.contrib.auth.models import User
+#from django.contrib.auth.models import User
 
 from django.shortcuts import render
-#from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
 from .forms import CustomUserCreationForm
@@ -10,7 +9,7 @@ from .forms import CustomUserCreationForm
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
-from django.contrib.auth.decorators import login_required
+#from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 
 
@@ -32,8 +31,8 @@ def Login(request):
         user = authenticate(request, username = username, password = password)
         if user is not None:
             form = login(request, user)
-            messages.success(request, f' wecome {username} !!')
-            return redirect('index')
+            messages.success(request, f' Welcome {username} !!')
+            return redirect('home')
         else:
             messages.info(request, f'account done not exit plz sign in')
     form = AuthenticationForm()

@@ -1,7 +1,5 @@
 from cProfile import label
-import email
 from django import forms
-from django.contrib.auth.models import User 
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
 from .models import CustomUser
@@ -11,11 +9,18 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta:
         model = CustomUser
-        fields = ("username", "email")
+        fields = ("username", "email", "first_name", "last_name")
         labels = {'email':'email address',}
+        labels = {'first_name':'First name',}
+        labels = {'last_name':'Last name',}
+        # location
+        # DOB
+
 
 class CustomUserChangeForm(UserChangeForm):
 
     class Meta:
         model = CustomUser
-        fields = ("username", "email")
+        fields = ("username", "email", "first_name", "last_name", )
+        # location
+        # DOB

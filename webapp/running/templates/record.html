@@ -1,5 +1,44 @@
-<form action="/your-name/" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
-</form>
+{% extends 'base.html' %}
+{% block title %}CENTURY CLUB Recording{% endblock %}
+
+{% block menu %}
+ <ul id="menu">
+  {% if user.is_authenticated %}
+    <li>
+      <h1>Welcome Back </h1>
+      <h1>{{ user.username }}!</h1>
+    
+    </li>
+    {% endif %}
+
+    <li>
+      <a href="about.html">About</a>
+    </li>
+  </ul>
+
+{% endblock %}
+
+{% block content %}
+<div id="body" class="home">
+    <div class="header">
+    </div>
+    <div class="body">
+      <div>
+        <h1>Recording Page for Century Club!</h1>
+        <form action="/your-name/" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Submit">
+        </form>
+        </div>
+        <div>
+            <p>Running, Friendship, Motivation</p>
+          </div>
+          </div>
+  </div>
+  
+{% endblock %}
+
+
+
+

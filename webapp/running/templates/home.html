@@ -9,7 +9,7 @@
     </li>
     {% if user.is_authenticated %}
     <li>
-      <a href="miles.html">Record Miles</a>
+      <a href="record"> Record Miles {{ user.username }}</a>
     </li>
     <li>
       <a href="accounts/logout">Logout</a>
