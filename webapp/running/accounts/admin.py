@@ -1,5 +1,5 @@
 from django.contrib import admin
-
+from django.contrib.auth.models import Group
 # Register your models here.
 
 from django.contrib.auth.admin import UserAdmin
@@ -16,3 +16,5 @@ class CustomUserAdmin(UserAdmin):
     
 
 admin.site.register(CustomUser, CustomUserAdmin)
+admin.site.unregister(Group)
+admin.site.site_header = "Century Club Database - Django Admin"

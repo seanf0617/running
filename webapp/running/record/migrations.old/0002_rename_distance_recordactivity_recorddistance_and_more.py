@@ -10,11 +10,6 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RenameField(
-            model_name='recordactivity',
-            old_name='distance',
-            new_name='recorddistance',
-        ),
         migrations.AddField(
             model_name='recordactivity',
             name='recorddate',
