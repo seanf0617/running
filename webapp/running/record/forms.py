@@ -1,9 +1,10 @@
 from django import forms
+from .models import RecordActivity
 
-
-class NameForm(forms.Form):
-    your_name = forms.CharField(label='Your name', max_length=100)
-
-
-class RecordForm(forms.Form):
-    date = forms.CharField(label='Date:', max_length=20)
+class RecordActivityForm(forms.ModelForm):
+    class Meta:
+        model = RecordActivity
+        fields = ['date', 'distance']
+        widgets = {
+            'date': forms.DateInput(attrs={'type': 'date'}),
+        }

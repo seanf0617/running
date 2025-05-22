@@ -10,11 +10,13 @@ class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = CustomUser
         fields = ("username", "email", "first_name", "last_name", "targetmiles", "location")
-        labels = {'email':'email address',}
-        labels = {'first_name':'First name',}
-        labels = {'last_name':'Last name',}
-        labels = {'location':'Location',}
-        labels = {'targetmiles':'Target Miles',}
+        labels = {
+            'email': 'Email Address',
+            'first_name': 'First Name',
+            'last_name': 'Last Name',
+            'location': 'Location',
+            'targetmiles': 'Target Miles',
+        }
         # DOB
 
 

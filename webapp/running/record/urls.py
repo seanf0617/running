@@ -1,8 +1,9 @@
-from django.urls import path, include
-from django.views.generic.base import TemplateView
+from django.urls import path
+from . import views
 
 
 urlpatterns = [
-    path("record/", include("django.contrib.auth.urls")),
-    path('record/', TemplateView.as_view(template_name='record.html'), name='record'),
+    path('new/', views.RecordCreateView.as_view(), name='record_create'),
+    path('list/', views.RecordListView.as_view(), name='record_list'),
+    # The base path 'record/' will be prefixed at the project-level urls.py
 ]
